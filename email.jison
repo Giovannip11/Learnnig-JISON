@@ -1,13 +1,12 @@
-/* Terminar em casa
-
+/* Terminar em casa, ta dando bosta
  */
 
 /* lexical grammar */
 %lex
 %%
 
-\s+                   /* skip whitespace */
-[\w]+("."[\d]+?)      return 'char'
+\s+                   
+[A-Za-z0-9_.]+         return 'TEXT';
 "("                   return '('
 ")"                   return ')'
 "@"                   return '@'
@@ -25,10 +24,6 @@ start
     ;
 
 email 
-    : codigo "(" char char ")" celular
+     : "(" TEXT "@" TEXT ")" 
     ;
         
-celular
-    : 
-   
-    ;
