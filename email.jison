@@ -1,15 +1,16 @@
-/* Terminar em casa, ta dando bosta
+/* Não faço ideia pq com 2 TEXT funciona
  */
 
 /* lexical grammar */
 %lex
 %%
 
-\s+                   
-[A-Za-z0-9_.]+         return 'TEXT';
+\s+
+[0-9A-Za-z_.]+        return 'TEXT'      
+[A-Za-z0-9_.]+        return 'TEXT'
 "("                   return '('
 ")"                   return ')'
-"@"                   return '@'
+"@"                   return 'arroba'
 <<EOF>>               return 'EOF'
 .                     return 'INVALID'
 
@@ -20,10 +21,11 @@
 
 start
     : email EOF
-        {return "email valido";}
+        {return "email valido"}
     ;
 
 email 
-     : "(" TEXT "@" TEXT ")" 
-    ;
+     : "(" TEXT arroba TEXT ")"
+     ;
+
         
